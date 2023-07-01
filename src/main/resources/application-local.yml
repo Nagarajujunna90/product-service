@@ -1,0 +1,22 @@
+server:
+  port: 8084
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#  instance:
+#    hostname: localhost
+spring:
+  application:
+    name: product-service
+  datasource:
+    password: root
+    url: jdbc:mysql://localhost:3306/e-product?useSSL=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#  config:
+#    import: aws-secretsmanager:mysql-rds
+#    use-legacy-processing: false

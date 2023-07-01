@@ -1,0 +1,19 @@
+server:
+  port: 8084
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#  instance:
+#    hostname: localhost
+spring:
+  application:
+    name: product-service
+  datasource:
+    password: Advika123
+    url: jdbc:mysql://nagaraju.cblywpkgn4z6.us-east-1.rds.amazonaws.com:3306/e-product?useSSL=true
+    username: admin
+  jpa:
+    hibernate:
+      ddl-auto: 'update '
+    show-sql: true

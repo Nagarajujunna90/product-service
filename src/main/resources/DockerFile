@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8084
+ADD target/product-service.jar product-service.jar
+ENTRYPOINT ["java","-jar","/product-service.jar"]

@@ -1,0 +1,21 @@
+server:
+  port: 8084
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#  instance:
+#    hostname: localhost
+
+#cloud:
+#  aws:
+#    region:
+#      static: us-east-1
+#      auto: false
+#    credentials:
+#        access-key: AKIAVU3BP7RK3U3Y34MQ
+#        secret-key: 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
+
+spring:
+  profiles:
+    active: local
