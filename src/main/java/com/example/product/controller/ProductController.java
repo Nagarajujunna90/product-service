@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin("http://3.88.216.131")
 @RestController
 @RequestMapping("/product/v1")
 public class ProductController {

@@ -13,9 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@CrossOrigin("http://3.88.216.131")
+@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/image/v1")
+@RequestMapping("/product/v1")
 public class ImageController {
     @Autowired
     private ImageService imageService;
