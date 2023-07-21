@@ -17,6 +17,27 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  kafka:
+    producer:
+     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+     value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topics :
+          create-product : createProduct
+          update-product : updateProduct
+          delete-product : delete-product
+          get-all-products: getAllProducts
+          get-product-by-id : getProductById
+
+#    consumer:
+#      group-id: product
+#      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#      topics:
+#        - name: createProducts
+    bootstrap-servers:
+      - localhost:9092
+
+
 #  config:
 #    import: aws-secretsmanager:mysql-rds
 #    use-legacy-processing: false
