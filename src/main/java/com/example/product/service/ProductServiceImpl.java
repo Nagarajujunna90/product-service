@@ -1,6 +1,5 @@
 package com.example.product.service;
 
-import com.example.eventservice.service.EventServiceLog;
 import com.example.product.model.Image;
 import com.example.product.model.Product;
 import com.example.product.model.ProductResponse;
@@ -91,7 +90,7 @@ public class ProductServiceImpl implements ProductService {
                 productResponseList.add(productResponse);
             }
         });
-        kafkaTemplate.send(getProductById,productResponseList);
+      //  kafkaTemplate.send(getProductById,productResponseList);
         //eventServiceLog.addEvent(productResponseList, "ALL_PRODUCT_FETCHED");
         return productResponseList;
     }
