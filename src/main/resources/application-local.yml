@@ -10,9 +10,9 @@ spring:
   application:
     name: product-service
   datasource:
-    password: root
     url: jdbc:mysql://localhost:3306/e-product?useSSL=true
     username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
