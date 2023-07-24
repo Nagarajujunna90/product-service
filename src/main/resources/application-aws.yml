@@ -1,5 +1,3 @@
-server:
-  port: 8084
 #eureka:
 #  client:
 #    register-with-eureka: true
@@ -7,13 +5,44 @@ server:
 #  instance:
 #    hostname: localhost
 spring:
-  application:
-    name: product-service
   datasource:
-    password: Advika123
-    url: jdbc:mysql://nagaraju.cblywpkgn4z6.us-east-1.rds.amazonaws.com:3306/e-product?useSSL=true
-    username: admin
+    url: jdbc:mysql://host.docker.internal:3306/e-product?useSSL=false
+    username: root
+    password: root
   jpa:
     hibernate:
-      ddl-auto: 'update '
+      ddl-auto: update
     show-sql: true
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topics:
+      create-product: createProduct
+      update-product: updateProduct
+      delete-product: delete-product
+      get-all-products: getAllProducts
+      get-product-by-id: getProductById
+
+    #    consumer:
+    #      group-id: product
+    #      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+    #      value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    #      topics:
+    #        - name: createProducts
+    bootstrap-servers:
+      - localhost:9092
+
+
+  #  config:
+  #    import: aws-secretsmanager:mysql-rds
+  #    use-legacy-processing: false
+
+#cloud:
+#  aws:
+#    region:
+#      static: us-east-1
+#      auto: false
+#    credentials:
+#        access-key: AKIAVU3BP7RK3U3Y34MQ
+#        secret-key: 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
