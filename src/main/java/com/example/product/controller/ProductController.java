@@ -56,6 +56,6 @@ public class ProductController {
             if(product.getImageId()!=null)
             imageService.deleteImageById(product.getImageId());
         productService.deleteProductById(productId);
-        return new ResponseEntity<>("Deleted successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Deleted product successfully", HttpStatus.OK);
     }
 }

@@ -64,16 +64,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductResponse getProductById(Integer orderId) {
-        Product product = productRepo.findById(orderId).orElse(null);
+    public ProductResponse getProductById(Integer productId) {
+        Product product = productRepo.findById(productId).orElse(null);
         ProductResponse productResponse = null;
         if (product != null && product.getImageId() != null) {
             Image image = imageRepo.findById(product.getImageId()).orElse(null);
             productResponse = new ProductResponse(product, image);
             productResponse.setImage(image != null ? image.getData() : new byte[0]);
+        }else{
+            productResponse = new ProductResponse(product, null);
         }
       //  kafkaTemplate.send(getProductById,product);
-      //  eventServiceLog.addEvent(orderId, "PRODUCT_DETAILED_FETCHED_BY_ID");
+      //  eventServiceLog.addEvent(productId, "PRODUCT_DETAILED_FETCHED_BY_ID");
         return productResponse;
 
     }
@@ -87,6 +89,9 @@ public class ProductServiceImpl implements ProductService {
                 Image image = imageRepo.findById(product.getImageId()).orElse(null);
                 ProductResponse productResponse = new ProductResponse(product, image);
                 productResponse.setImage(image.getData());
+                productResponseList.add(productResponse);
+            }else{
+                ProductResponse productResponse = new ProductResponse(product, null);
                 productResponseList.add(productResponse);
             }
         });
