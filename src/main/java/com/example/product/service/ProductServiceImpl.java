@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
 
   //  EventServiceLog eventServiceLog;
 
-    @Autowired
+    @Autowired(required = false)
     KafkaTemplate kafkaTemplate;
 
     @Autowired
@@ -49,7 +49,7 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(Product productRequest) {
         System.out.println(createProduct);
         Product product = productRepo.save(productRequest);
-        kafkaTemplate.send(createProduct,product);
+        //kafkaTemplate.send(createProduct,product);
       //  eventServiceLog.addEvent(product, "PRODUCT_CREATED");
         return product;
     }
@@ -58,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(Product productRequest, String productId) {
         productRequest.setId(Integer.valueOf(productId));
         Product product = productRepo.save(productRequest);
-        kafkaTemplate.send(updateProduct,product);
+      //  kafkaTemplate.send(updateProduct,product);
      //   eventServiceLog.addEvent(product, "PRODUCT_UPDATED");
         return product;
     }
@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
             productResponse = new ProductResponse(product, image);
             productResponse.setImage(image != null ? image.getData() : new byte[0]);
         }
-        kafkaTemplate.send(getProductById,product);
+      //  kafkaTemplate.send(getProductById,product);
       //  eventServiceLog.addEvent(orderId, "PRODUCT_DETAILED_FETCHED_BY_ID");
         return productResponse;
 

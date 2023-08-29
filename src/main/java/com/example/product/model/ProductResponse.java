@@ -29,7 +29,7 @@ public class ProductResponse {
         this.manufacturingDate = product.getManufacturingDate();
         this.expiryDate = product.getExpiryDate();
         this.imageId = product.getImageId();
-        this.image = image.getData();
+        this.image =image!=null?image.getData():null;
     }
     /* @ManyToMany(mappedBy = "orders")
     private List<User> users;*/
