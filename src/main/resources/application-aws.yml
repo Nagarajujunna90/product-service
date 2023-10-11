@@ -8,13 +8,13 @@
 #RDS Configureation
 spring:
   datasource:
-#    url: jdbc:mysql://e-mandi.cblywpkgn4z6.us-east-1.rds.amazonaws.com:3306/e-mandi?useSSL=false
-#    username: root
-#    password: Advika123
+#    url: jdbc:mysql://chat-app.cblywpkgn4z6.us-east-1.rds.amazonaws.com:3306/product
+#    username: chatapp
+#    password: chatapp$23v
   #Lambda Configuration-Need to configure DB details in AWS Lambda configuration tab-Environment Variables
-    url: ${URL}
-    username: ${USERNAME}
-    password: ${PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
