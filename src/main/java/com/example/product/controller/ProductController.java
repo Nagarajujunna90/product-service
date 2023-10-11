@@ -22,22 +22,26 @@ public class ProductController {
     @Autowired
     private ImageService imageService;
 
+    @GetMapping("/test")
+    public ResponseEntity<?> createProduct() {
+        return new ResponseEntity<>("from latest new latest", HttpStatus.OK);
+    }
 
     @PostMapping("/product")
-    public ResponseEntity<Product> createProduct(@RequestBody Product productRequest) {
+    public ResponseEntity<?> createProduct(@RequestBody Product productRequest) {
         Product product = productService.createProduct(productRequest);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @PutMapping("/product/{productId}")
-    public ResponseEntity<Product> updateProduct(@RequestBody Product productRequest, @PathVariable("productId") String productId) {
+    public ResponseEntity<?> updateProduct(@RequestBody Product productRequest, @PathVariable("productId") String productId) {
         Product product = productService.updateProduct(productRequest, productId);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<ProductResponse> getProductById(@PathVariable("productId") Integer productId) {
+    public ResponseEntity<?> getProductById(@PathVariable("productId") Integer productId) {
         ProductResponse product = productService.getProductById(productId);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
