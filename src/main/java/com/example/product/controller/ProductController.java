@@ -24,7 +24,7 @@ public class ProductController {
 
     @GetMapping("/test")
     public ResponseEntity<?> createProduct() {
-        return new ResponseEntity<>("from latest new latest", HttpStatus.OK);
+        return new ResponseEntity<>("from nagaraju new latest", HttpStatus.OK);
     }
 
     @PostMapping("/product")
